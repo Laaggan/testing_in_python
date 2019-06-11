@@ -15,9 +15,17 @@ class TestSum(unittest.TestCase):
         '''
         This test checks if fractions can be added by the function sum
         '''
-        data = [Fraction(1, 4), Fraction(1, 4), Fraction(2, 5)]
+        data = [Fraction(1, 4), Fraction(1, 4), Fraction(2, 4)]
         result = sum(data)
         self.assertEqual(result, 1, 'Should be 1!')
+
+    def test_bad_type(self):
+        '''
+        This test checks that an error is thrown when sum is given a string
+        '''
+        data = 'banana'
+        with self.assertRaises(TypeError):
+            result = sum(data)
 
 if __name__ == 'main':
     unittest.main()
